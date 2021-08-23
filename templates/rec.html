@@ -1,0 +1,51 @@
+{% extends "Index.html" %}
+
+
+{% block content %}
+<main class="px-3">
+  <h1>What To Watch! </h1>
+  <p class="lead">This is A movie Recomadation System which helps you to choose movies which are smiller in genrel to the movie you have watched or wanted to watch</p>
+  <p class="lead"></p>
+
+
+    
+    <div class="form-group container-md" >
+        <form  action='/Recomdation'  method='post'>
+        <label for="sel1">Select list:</label>
+        <select class="form-control" name='Movie' >
+          {% for i in li %}
+        <option value="{{ i }}">{{ i }}</option>
+          {% endfor %}
+        </select>
+
+        <div >
+          <button type="submit"  class="btn btn-lg btn-success shadow-sm p-3 mb-5 rounded">Recomand a movie</button>
+        </div>
+      </form>
+
+    </div>
+
+<div class="">
+  <label for="lastmovie">Recomdation with:{{ lm }}</label>
+  <ul class="list-group list-group-item-success ">
+    {% for i in rec %}
+    <li class="list-group-item list-group-item-success data-bs-container="body" data-bs-toggle="toolip" data-bs-placement="top" data-bs-content="Top popover" ">{{ i[1] }}
+
+
+
+    </li>
+    {% endfor %}
+
+</ul>
+
+</div>
+
+
+</main>
+
+<script src="{{ url_for('static',filename='js/bootstrap.bundle.js') }}"></script>
+
+
+
+
+{% endblock %}
